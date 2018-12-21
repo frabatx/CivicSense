@@ -1,0 +1,40 @@
+I, [2018-06-16T09:29:05.425213 #11748]  INFO -- : [a1c305df-e79f-49bf-986d-f96aa986f1a0] Started GET "/" for 127.0.0.1 at 2018-06-16 09:29:05 +0000
+I, [2018-06-16T09:29:05.429297 #11748]  INFO -- : [a1c305df-e79f-49bf-986d-f96aa986f1a0] Processing by WelcomeController#welcome as HTML
+I, [2018-06-16T09:29:05.440976 #11748]  INFO -- : [a1c305df-e79f-49bf-986d-f96aa986f1a0] Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+F, [2018-06-16T09:29:05.441634 #11748] FATAL -- : [a1c305df-e79f-49bf-986d-f96aa986f1a0]   
+F, [2018-06-16T09:29:05.441675 #11748] FATAL -- : [a1c305df-e79f-49bf-986d-f96aa986f1a0] ActiveRecord::StatementInvalid (Could not find table 'screams'):
+F, [2018-06-16T09:29:05.441697 #11748] FATAL -- : [a1c305df-e79f-49bf-986d-f96aa986f1a0]   
+F, [2018-06-16T09:29:05.441718 #11748] FATAL -- : [a1c305df-e79f-49bf-986d-f96aa986f1a0] app/controllers/welcome_controller.rb:3:in `welcome'
+I, [2018-06-16T09:29:05.598471 #11748]  INFO -- : [f383adaf-c6bf-478f-90eb-feefecb6b27a] Started GET "/favicon.ico" for 127.0.0.1 at 2018-06-16 09:29:05 +0000
+F, [2018-06-16T09:29:05.599185 #11748] FATAL -- : [f383adaf-c6bf-478f-90eb-feefecb6b27a]   
+F, [2018-06-16T09:29:05.599247 #11748] FATAL -- : [f383adaf-c6bf-478f-90eb-feefecb6b27a] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+F, [2018-06-16T09:29:05.599308 #11748] FATAL -- : [f383adaf-c6bf-478f-90eb-feefecb6b27a]   
+F, [2018-06-16T09:29:05.599336 #11748] FATAL -- : [f383adaf-c6bf-478f-90eb-feefecb6b27a] actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] actionpack (5.2.0) lib/action_dispatch/middleware/ssl.rb:74:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] railties (5.2.0) lib/rails/engine.rb:524:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+[f383adaf-c6bf-478f-90eb-feefecb6b27a] puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-06-16T09:29:09.086538 #11748]  INFO -- : [8ea33112-1712-44ea-9835-4cdb2e002b47] Started GET "/" for 127.0.0.1 at 2018-06-16 09:29:09 +0000
+I, [2018-06-16T09:29:09.087501 #11748]  INFO -- : [8ea33112-1712-44ea-9835-4cdb2e002b47] Processing by WelcomeController#welcome as HTML
+I, [2018-06-16T09:29:09.088570 #11748]  INFO -- : [8ea33112-1712-44ea-9835-4cdb2e002b47] Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms)
+F, [2018-06-16T09:29:09.089175 #11748] FATAL -- : [8ea33112-1712-44ea-9835-4cdb2e002b47]   
+F, [2018-06-16T09:29:09.089225 #11748] FATAL -- : [8ea33112-1712-44ea-9835-4cdb2e002b47] ActiveRecord::StatementInvalid (Could not find table 'screams'):
+F, [2018-06-16T09:29:09.089248 #11748] FATAL -- : [8ea33112-1712-44ea-9835-4cdb2e002b47]   
+F, [2018-06-16T09:29:09.089286 #11748] FATAL -- : [8ea33112-1712-44ea-9835-4cdb2e002b47] app/controllers/welcome_controller.rb:3:in `welcome'
