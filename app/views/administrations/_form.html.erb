@@ -1,0 +1,61 @@
+<%= form_with(model: administration, local: true) do |form| %>
+  <% if administration.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(administration.errors.count, "error") %> prohibited this administration from being saved:</h4>
+      <ul>
+      <% administration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <% unless @administration.id? %>
+      <%= form.fields_for :user do |user_form| %>
+        <div class="form-group">
+          <%= user_form.label :email %>
+          <%= user_form.text_field :email, class: 'form-control' %>
+        </div>
+       
+        <div class="form-group">
+          <%= user_form.label :password %>
+          <%= user_form.password_field :password, class: 'form-control' %>
+        </div>
+      <% end %>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :administration_name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :phone_number %>
+        <%= form.text_field :phone_number, id: :administration_phone_number, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :city %>
+        <%= form.text_field :city, id: :administration_city, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :province %>
+        <%= form.text_field :province, id: :administration_province, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :street %>
+        <%= form.text_field :street, id: :administration_street, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit "Save", class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+<% end %>

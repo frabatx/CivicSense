@@ -1,0 +1,7 @@
+<h1>Thank you!</h1>
+Your issue has been successfully sent. You can check the status through this link:<br>
+<%= link_to "Scream report", scream_path(@scream) %><br><br>
+
+<% unless @scream.screamer_email.blank? %>
+We have also sent you an email with this link.
+<% end %>

@@ -1,0 +1,30 @@
+<h1><%= @administration.name %></h1>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @administration.phone_number %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @administration.city %>
+</p>
+
+<p>
+  <strong>Province:</strong>
+  <%= @administration.province %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @administration.street %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @administration.user.email %>
+</p>
+
+<%= link_to 'Back', administrations_path, class: 'btn btn-secondary' %>
+<%= link_to 'Edit', edit_administration_path(@administration), class: 'btn btn-warning' %>
+<%= link_to 'Delete', @administration, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

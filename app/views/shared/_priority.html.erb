@@ -1,0 +1,7 @@
+<% if @scream.priority == 1 %>
+	<span class="badge badge-secondary">Low</span>
+<% elsif @scream.priority == 2 %>
+	<span class="badge badge-warning">Meidum</span>
+<% else %>
+	<span class="badge badge-danger">High</span>
+<% end %>

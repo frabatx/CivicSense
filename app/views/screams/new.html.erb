@@ -1,0 +1,29 @@
+<h1>New Scream</h1>
+
+
+<%= render 'shared/map', height: 25, jsCallback: 'initMapNewScream' %>
+
+<div class="modal" id="locationAlertModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Oops...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="errorMessage"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button name="updateLocationButton" class="btn btn-secondary">Update location</button>
+
+<div class="mb-5">
+  <%= render 'form', scream: @scream %>
+</div>

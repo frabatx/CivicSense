@@ -1,0 +1,32 @@
+<h1>Solvers</h1>
+
+<div class="clearfix mb-2">
+  <%= link_to 'New Solver', new_solver_path, class: 'btn btn-success float-right' %>
+</div>
+
+<% if @solvers %>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @solvers.each do |solver| %>
+      <tr>
+        <td><%= solver.name %></td>        <td><%= solver.phone_number %></td>
+        <td><%= solver.user.email %></td>
+        <td><%= link_to 'Show', solver, class: 'btn btn-sm btn-primary' %></td>
+        <td><%= link_to 'Edit', edit_solver_path(solver), class: 'btn btn-sm btn-warning' %></td>
+        <td><%= link_to 'Delete', solver, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  There are no solver available.
+<% end %>

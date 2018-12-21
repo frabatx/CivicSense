@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <title>CivicSense</title>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">CivicSense</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to "Home", root_path, :class => 'nav-link' %>
+          </li>
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <% if current_user.superuser? %>
+            <%= link_to "Backend", administrations_path, :class => 'nav-link' %>
+            <% elsif current_user.administration? %>
+            <%= link_to "Backend", solvers_path, :class => 'nav-link' %>
+            <% elsif current_user.solver? %>
+            <%= link_to "Backend", screams_path, :class => 'nav-link' %>
+            <% end %>
+          </li>
+          <% end %>
+
+          <li class="nav-item">
+            <%= link_to "Stats", stats_path, :class => 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'nav-link' %>
+          <% else %>
+            <%= link_to "Sign in", new_user_session_path, :class => 'nav-link' %>
+          <% end %>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-2 h-100">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == 'alert' ? 'warning' : 'info' %>">
+          <%= msg %>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? and ['administrations', 'solvers', 'screams'].include? controller.controller_name  %>
+        <div class="row h-100">
+          <div class="col-sm-3">
+            <h1>Menu</h1>
+            <div class="list-group">
+              <% if current_user.role == 1 %>
+              <a href="<%= administrations_path %>" class="list-group-item list-group-item-action <%= 'active' if controller.controller_name == 'administrations' %>">
+                Manage Administrations
+              </a>
+              <% end %>
+              <% if current_user.role <= 2 %>
+              <a href="<%= solvers_path %>" class="list-group-item list-group-item-action <%= 'active' if controller.controller_name == 'solvers' %>">
+                Manage Solvers
+              </a>
+              <% end %>        
+              <a href="<%= screams_path %>" class="list-group-item list-group-item-action <%= 'active' if controller.controller_name == 'screams' %>">
+                Manage Screams
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-9 h-100">
+            <%= yield %>
+          </div>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
+    </div>
+
+  </body>
+</html>

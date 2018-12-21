@@ -1,0 +1,7 @@
+<% if @scream.status == 1 %>
+	<span class="badge badge-primary">New</span>
+<% elsif @scream.status == 2 %>
+	<span class="badge badge-success">Assigned</span>
+<% else %>
+	<span class="badge badge-secondary">Closed</span>
+<% end %>

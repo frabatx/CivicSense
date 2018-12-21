@@ -1,0 +1,54 @@
+<div class="jumbotron">
+  <h1 class="display-4">Report everything that doesn't work in your city!</h1>
+  <p class="lead">This is a simple service which allows you to reports your city issues and get a real-time feedback on its status.</p>
+  <hr class="my-4">
+  <p>Start using our service today!</p>
+  <%= link_to "Report now!", new_scream_path, class: 'btn btn-primary btn-lg' %>
+</div>
+
+<h3>Core features</h3>
+
+<div class="row">
+	<div class="col-sm-4 text-center">
+		<%= fa_stacked_icon "plug", class: "fa-3x" %><br>
+		Online every day 24/7!
+	</div>
+	<div class="col-sm-4 text-center">
+		<%= fa_stacked_icon "users", class: "fa-3x" %><br>
+		Focussed on the best user experience
+	</div>
+	<div class="col-sm-4 text-center">
+		<%= fa_stacked_icon "comment", class: "fa-3x" %><br>
+		Direct communication with the interested administration
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-4 text-center">
+		<%= fa_stacked_icon "envelope-open", class: "fa-3x" %><br>
+		Real time updates about your reports
+	</div>
+	<div class="col-sm-4 text-center">
+		<%= fa_stacked_icon "bolt", class: "fa-3x" %><br>
+		Fast to use: no need for registration or login
+	</div>
+	<div class="col-sm-4 text-center">
+		<%= fa_stacked_icon "image", class: "fa-3x" %><br>
+		Attach as many images as you want to each issue
+	</div>
+</div>
+
+<h3 class="mt-5">So far...</h3>
+<div class="row mb-5">
+	<div class="col-6 text-center">
+		<h4>
+			<%= @screams_so_far %><br>
+			Issues created so far
+		</h4>
+	</div>
+	<div class="col-6 text-center">
+		<h4>
+			<%= @screams_today %><br>
+			Issues created today
+		</h4>
+	</div>
+</div>

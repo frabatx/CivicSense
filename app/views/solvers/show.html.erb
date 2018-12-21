@@ -1,0 +1,25 @@
+<h1><%= @solver.name %></h1>
+
+<p>
+  <strong>Description:</strong><br>
+  <%= @solver.description %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @solver.phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @solver.user.email %>
+</p>
+
+<p>
+  <strong>Administration:</strong>
+  <%= @solver.administration.name %>
+</p>
+
+<%= link_to 'Back', solvers_path, class: 'btn btn-secondary' %>
+<%= link_to 'Edit', edit_solver_path(@solver), class: 'btn btn-warning' %>
+<%= link_to 'Delete', @solver, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

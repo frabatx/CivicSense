@@ -1,0 +1,76 @@
+<script type="text/javascript">
+  screamId = '<%= @scream.id %>'
+</script>
+
+<%= render 'shared/map', height: 50, jsCallback: 'initMapShowScream' %>
+
+
+<table class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <td><strong>Address</strong></td>
+      <td><%= @scream.address %></td>
+    </tr>
+    <tr>
+      <td><strong>Administration</strong></td>
+      <td><%= @scream.administration.name %></td>
+    </tr>
+    <% if @scream.solver %>
+    <tr>
+      <td><strong>Solver</strong></td>
+      <td><%= @scream.solver.name %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td><strong>Description</strong></td>
+      <td><%= @scream.description %></td>
+    </tr>
+    <tr>
+      <td><strong>Priority</strong></td>
+      <td><%= render 'shared/priority' %></td>
+    </tr>
+    <% if not @scream.screamer_email.blank? %>
+    <tr>
+      <td><strong>Screamer email</strong></td>
+      <td><%= @scream.screamer_email %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td><strong>Status</strong></td>
+      <td><%= render 'shared/status' %></td>
+    </tr>
+    <tr>
+      <td><strong>Category</strong></td>
+      <td><%= @scream.category.name %></td>
+    </tr>
+     <tr>
+      <td><strong>Created at</strong></td>
+      <td><%= @scream.created_at%></td>
+    </tr>
+    <tr>
+      <td><strong>Last update</strong></td>
+      <td><%= @scream.updated_at %></td>
+    </tr>
+    <% if @scream.uploads %>
+    <tr>
+      <td><strong>Attachments</strong></td>
+      <td>
+        <% @scream.uploads.each_slice(3) do |slice| %>
+          <div class="row">
+            <% slice.each do |upload| %>
+              <div class="col-sm-4"">
+                <%= link_to (image_tag upload, class: 'img-thumbnail img-fluid'), rails_blob_path(upload) %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if user_signed_in? %>
+<%= link_to 'Back', screams_path, class: 'btn btn-secondary' %>
+<%= link_to 'Edit', edit_scream_path(@scream), class: 'btn btn-warning' %>
+<% end %>

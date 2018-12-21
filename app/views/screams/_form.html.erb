@@ -1,0 +1,78 @@
+<%= form_with(model: scream, local: true) do |form| %>
+  <% if scream.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(scream.errors.count, "error") %> prohibited this scream from being saved:</h2>
+
+      <ul>
+      <% scream.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :latitude, value: 0 %>
+  <%= form.hidden_field :longitude, value: 0 %>
+
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :scream_address, class: 'form-control', readonly: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :scream_description, class: 'form-control', rows: 4 %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :priority %>
+    <%= form.select :priority, {"Low": 3, "Medium": 2, "High": 1}, {include_blank: true}, {class: 'form-control'} %>
+  </div>
+
+  <% if user_signed_in? and @scream.status == 2 %>
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, {"Closed": 3, "Assigned": 2}, {}, {class: 'form-control'} %>
+  </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :screamer_email, id: :scream_screamer_email, class: 'form-control' %>
+    <% unless @scream.id? %>
+    <small class="form-text text-muted">Type your email address if you would like to get updated about the status of your scream.</small>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.order(:name),:id,:name, {include_blank: true}, {class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :administration_id %>
+    <% if user_signed_in? and current_user.solver? %>
+    <%= form.text_field :administration_id, {value: @scream.administration.name, class: 'form-control', readonly: true}  %>
+    <% else %>
+    <%= form.collection_select :administration_id, Administration.order(:name),:id,:name, {include_blank: true}, {class: 'form-control'}  %>
+    <% end %>
+  </div>
+
+  <% if user_signed_in? and (current_user.superuser? or current_user.administration?) and @scream.id %>
+  <div class="form-group">
+    <%= form.label :solver_id %>
+    <%= form.collection_select :solver_id, @scream.administration.solvers.order(:name),:id,:name, {include_blank: true}, {class: 'form-control'}  %>
+  </div>
+  <% end %>
+
+  <% unless @scream.id? %>
+  <div class="form-group">
+    <%= form.label :attachments %>
+    <%= form.file_field :uploads, multiple: true, class: "form-control",  accept: 'image/*' %>
+  </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-success" %>
+  </div>
+<% end %>
