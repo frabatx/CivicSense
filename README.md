@@ -1,24 +1,4 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Internet Application
+### How it works
+The internet application is a university project. The application is used to manage the problem of requests from the public to a general administration. It allows to photograph the problem, add a detailed description and finally send it to the administration.
+The administration has the power to manage its repair teams, assign the problem and change its status once it is settled. Allows sending the message via email to the user who has reported the fault.
